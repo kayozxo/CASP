@@ -7,7 +7,7 @@ def fetch_repo_languages(username, repo_name):
     url = f"https://api.github.com/repos/{username}/{repo_name}/languages"
     response = requests.get(url)
     if response.status_code == 200:
-        return list(response.json().keys())  # list of languages used
+        return list(response.json().keys())
     else:
         return []
 
@@ -38,7 +38,6 @@ def fetch_github_repos_with_languages(username):
             "Last Updated 📅": repo['updated_at'][:10]
         })
 
-    # Calculate most used language
     lang_counter = Counter(all_languages)
     most_common_lang = lang_counter.most_common(1)[0][0] if lang_counter else "N/A"
 
@@ -49,20 +48,38 @@ def fetch_github_repos_with_languages(username):
 # Streamlit UI
 # ------------------------------
 
-st.title("🐙 GitHub Tech Stack Analyzer")
+def gh():
+    st.title("😸 GitHub Data Fetcher")
 
-github_user = st.text_input("Enter GitHub username")
+    if "github_user" not in st.session_state:
+        st.session_state.github_user = ""
+    if "repo_df" not in st.session_state:
+        st.session_state.repo_df = None
+    if "top_lang" not in st.session_state:
+        st.session_state.top_lang = None
 
-if st.button("Analyze GitHub"):
-    if github_user:
-        with st.spinner("Fetching GitHub data..."):
-            df, top_lang = fetch_github_repos_with_languages(github_user)
-            if df is not None and not df.empty:
-                st.success(f"Found {len(df)} public repositories.")
-                st.markdown(f"### 🚀 Most Used Language: `{top_lang}`")
-                st.markdown("### 📦 Repository Details")
-                st.dataframe(df)
-            else:
-                st.warning("No repositories found or user does not exist.")
-    else:
-        st.warning("Please enter a GitHub username.")
+    github_user = st.text_input("Enter GitHub username", st.session_state.github_user)
+
+    if st.button("Analyze GitHub"):
+        if github_user:
+            with st.spinner("Fetching GitHub data..."):
+                df, top_lang = fetch_github_repos_with_languages(github_user)
+                if df is not None and not df.empty:
+                    st.session_state.github_user = github_user
+                    st.session_state.repo_df = df
+                    st.session_state.top_lang = top_lang
+                    st.success(f"Found {len(df)} public repositories.")
+                else:
+                    st.warning("No repositories found or user does not exist.")
+        else:
+            st.warning("Please enter a GitHub username.")
+
+    # Display from session state
+    if st.session_state.repo_df is not None:
+        st.markdown(f"### 🚀 Most Used Language: `{st.session_state.top_lang}`")
+        st.markdown("### 📦 Repository Details")
+        st.dataframe(st.session_state.repo_df)
+
+
+if __name__ == "__main__":
+    gh()

@@ -8,3 +8,12 @@ wheels/
 
 # Virtual environments
 .venv
+
+.env
+
+gemma-2b-it-int4-ov
+gemma-2b-int4-ov
+
+stitched
+uploads
+vision_text_db.json
