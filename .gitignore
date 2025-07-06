@@ -17,3 +17,5 @@ gemma-2b-int4-ov
 stitched
 uploads
 vision_text_db.json
+openvino_models
+openvino_test

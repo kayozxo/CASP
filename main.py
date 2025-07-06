@@ -19,13 +19,11 @@ plag_page = st.Page(
     icon=":material/check:",
 )
 
-'''
 ai_page = st.Page(
-    page="views/ai.py",
-    title="Resume Enhancer",
-    icon=":material/star:",
+    page="views/page3.py",
+    title="AI Buddy",
+    icon=":material/face_2:",
 )
-'''
 
-pg = st.navigation(pages=[cdhi_page, plag_page])  # , ai_page])
+pg = st.navigation(pages=[cdhi_page, plag_page, ai_page])
 pg.run()
