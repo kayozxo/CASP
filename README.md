@@ -108,3 +108,4 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
 ## 👩🏻‍💻 Contributors:
 
 1. [@payalch-25](https://github.com/payalch-25) worked on **Plagiarism Checker**
+2. [@abhijitha03](https://github.com/abhijitha03) worked on Study Assistant
