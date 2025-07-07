@@ -43,6 +43,14 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
   - Supports both text and voice input/output (speech-to-text and text-to-speech).
   - Recent chat always appears at the top for a seamless experience.
 
+## 📼 Demo
+
+
+
+https://github.com/user-attachments/assets/f13a2b59-1e2b-4527-9ba4-5cefa75a5b2e
+
+
+
 ## 🛠️ Tech Stack
 
 - **Frontend/UI:** Streamlit (custom tabs, containers, expander, chat UI)
