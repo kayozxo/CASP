@@ -40,7 +40,7 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
 - **AI Document Chatbot:**
   - Ask questions about any uploaded document.
   - Uses Groq LLM to answer based only on the document content (contextual RAG-style QA).
-  - Supports both text and voice input/output (speech-to-text and text-to-speech).
+  - Supports both text and voice input (speech-to-text).
   - Recent chat always appears at the top for a seamless experience.
 
 ## 📼 Demo
