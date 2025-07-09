@@ -45,11 +45,7 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
 
 ## 📼 Demo
 
-
-
 https://github.com/user-attachments/assets/f13a2b59-1e2b-4527-9ba4-5cefa75a5b2e
-
-
 
 ## 🛠️ Tech Stack
 
@@ -66,6 +62,7 @@ https://github.com/user-attachments/assets/f13a2b59-1e2b-4527-9ba4-5cefa75a5b2e
 
 ```
 ├── main.py                # Streamlit app entrypoint (navigation)
+├── test-assignments/      # Assignments used for testing plagiarism
 ├── views/
 │   ├── page1.py           # Career DHI (grades, github, resume, report)
 │   ├── page2.py           # Plagiarism Checker (vision, sentence-level)
@@ -90,25 +87,37 @@ https://github.com/user-attachments/assets/f13a2b59-1e2b-4527-9ba4-5cefa75a5b2e
 ## 🚦 How to Run
 
 1. **Clone the repo:**
+
    ```bash
    git clone <repo-url>
    cd intel
    ```
-2. **Install dependencies:**
+
+2. **Create Virtual Environment:**
+
+   ```bash
+   python -m venv myenv
+   source myenv/bin/activate  # for macOS and Linux
+   (or)
+   myenv\Scripts\activate     # for windows
+
+   ```
+
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
-3. **Set up .env:**
+4. **Set up .env:**
    - Add your Groq API keys:
      ```
      GROQ_API="your-groq-api-key"
      GROQ_PLAG_API="your-groq-plag-key"
      ```
-4. **(Optional) Download OpenVINO model:**
+5. **(Optional) Download OpenVINO model:**
    ```bash
    python convert_miniLM_openvino.py
    ```
-5. **Run the app:**
+6. **Run the app:**
    ```bash
    streamlit run main.py
    ```
