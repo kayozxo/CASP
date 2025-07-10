@@ -45,7 +45,7 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
 
 ## 📼 Demo
 
-https://github.com/user-attachments/assets/f13a2b59-1e2b-4527-9ba4-5cefa75a5b2e
+https://github.com/user-attachments/assets/f1d1cbb5-23de-451b-a72b-f0c067ba30f6
 
 ## 🛠️ Tech Stack
 
