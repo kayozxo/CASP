@@ -1,7 +1,6 @@
 import streamlit as st
 import PyPDF2
-import re, os
-import google.generativeai as genai
+import os
 import tempfile
 import pymupdf4llm
 
@@ -18,7 +17,7 @@ def extract_text_from_pdf(pdf_file):
 
 def resume():
 
-    st.title("Resume Extractor")
+    st.title(":material/demography: Resume Extractor")
     st.write("Upload your resume to extract it's contents.")
 
 

@@ -1,29 +1,20 @@
 import streamlit as st
 
 st.set_page_config(
-    page_title="ResumeX - Professional Resume Builder",
-    page_icon="Static/icon.svg",
+    page_title="CASP",
+    page_icon=":material/api:",
     initial_sidebar_state="collapsed"
 )
 
-cdhi_page = st.Page(
-    page="views/page1.py",
-    title="Career DHI",
-    icon=":material/school:",
-    default=True,
-)
+pages = {
+  "Faculty": [
+        st.Page(page="views/page2.py", title="Plagiarism Checker", icon=":material/plagiarism:"),
+  ],
+  "Students": [
+        st.Page(page="views/page1.py", title="Career DHI", icon=":material/work:", default=True),
+        st.Page(page="views/page3.py", title="AI Buddy", icon=":material/robot_2:"),
+  ]
+}
 
-plag_page = st.Page(
-    page="views/page2.py",
-    title="Plagiarism Checker",
-    icon=":material/check:",
-)
-
-ai_page = st.Page(
-    page="views/page3.py",
-    title="AI Buddy",
-    icon=":material/face_2:",
-)
-
-pg = st.navigation(pages=[cdhi_page, plag_page, ai_page])
+pg = st.navigation(pages)
 pg.run()

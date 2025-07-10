@@ -3,22 +3,27 @@ from utils.cdhi.gh import gh
 from utils.cdhi.resume import resume
 from utils.cdhi.gr2 import generated_report  # new import
 import streamlit as st
+import streamlit_antd_components as sac
 
-tab1, tab2, tab3, tab4 = st.tabs([
-  "Grades Extractor",
-  "GitHub Data Fetcher",
-  "Resume Extractor",
-  "Career Report"
-])
+current_step = sac.steps(
+  items=[
+      sac.StepsItem(title="Grades Extractor"),
+      sac.StepsItem(title="GitHub Data Fetcher"),
+      sac.StepsItem(title="Resume Extractor"),
+      sac.StepsItem(title="Career Report"),
+  ],
+  size="xs",
+  return_index=True,
+)
 
-with tab1:
+if current_step == 0:
     gws()
 
-with tab2:
+if current_step == 1:
     gh()
 
-with tab3:
+if current_step == 2:
     resume()
 
-with tab4:
+if current_step == 3:
     generated_report()

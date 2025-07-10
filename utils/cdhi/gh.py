@@ -49,7 +49,7 @@ def fetch_github_repos_with_languages(username):
 # ------------------------------
 
 def gh():
-    st.title("😸 GitHub Data Fetcher")
+    st.title(":material/deployed_code_update: GitHub Data Fetcher")
 
     if "github_user" not in st.session_state:
         st.session_state.github_user = ""
@@ -58,26 +58,32 @@ def gh():
     if "top_lang" not in st.session_state:
         st.session_state.top_lang = None
 
-    github_user = st.text_input("Enter GitHub username", st.session_state.github_user)
+    col1, col2 = st.columns([0.8, 0.2], vertical_alignment="bottom", gap="small")
 
-    if st.button("Analyze GitHub"):
-        if github_user:
-            with st.spinner("Fetching GitHub data..."):
-                df, top_lang = fetch_github_repos_with_languages(github_user)
-                if df is not None and not df.empty:
-                    st.session_state.github_user = github_user
-                    st.session_state.repo_df = df
-                    st.session_state.top_lang = top_lang
-                    st.success(f"Found {len(df)} public repositories.")
-                else:
-                    st.warning("No repositories found or user does not exist.")
-        else:
-            st.warning("Please enter a GitHub username.")
+    with col1:
+        github_user = st.text_input("Enter GitHub username", st.session_state.github_user)
+
+    with col2:
+        analyse = st.button("Analyze GitHub")
+
+    if analyse:
+            if github_user:
+                with st.spinner("Fetching GitHub data..."):
+                    df, top_lang = fetch_github_repos_with_languages(github_user)
+                    if df is not None and not df.empty:
+                        st.session_state.github_user = github_user
+                        st.session_state.repo_df = df
+                        st.session_state.top_lang = top_lang
+                        st.success(f"Found {len(df)} public repositories.")
+                    else:
+                        st.warning("No repositories found or user does not exist.")
+            else:
+                st.warning("Please enter a GitHub username.")
 
     # Display from session state
     if st.session_state.repo_df is not None:
-        st.markdown(f"### 🚀 Most Used Language: `{st.session_state.top_lang}`")
-        st.markdown("### 📦 Repository Details")
+        st.markdown(f"### :material/code: Most Used Language: `{st.session_state.top_lang}`")
+        st.markdown("### :material/folder_data: Repository Details")
         st.dataframe(st.session_state.repo_df)
 
 

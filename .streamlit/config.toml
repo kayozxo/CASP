@@ -1,0 +1,8 @@
+[theme]
+base="light"
+primaryColor="#007367"
+backgroundColor="#fcfcfc"
+secondaryBackgroundColor="#f0f2f5"
+textColor="#333333"
+baseRadius="large"
+showWidgetBorder=false

@@ -87,22 +87,25 @@ def get_credentials(username, password):
 
 def gws():
 
-    st.title("🎓 Grades Extractor")
+    st.title(":material/grading: Grades Extractor")
 
     with st.container(border=True):
-        username = st.text_input("Enter your username")
-        password = st.text_input("Enter your password", type="password")
+        col1, col2 = st.columns(2, vertical_alignment="bottom", gap="small")
+        with col1:
+            username = st.text_input("Enter your username")
+        with col2:
+            password = st.text_input("Enter your password", type="password")
 
-    if st.button("Fetch Results"):
-        if username and password:
-            with st.spinner("Logging in and fetching results..."):
-                try:
-                    semester_data = get_credentials(username, password)
-                    st.session_state.semester_data = semester_data
-                except Exception as e:
-                    st.error(f"Something went wrong: {e}")
-        else:
-            st.warning("Please enter both username and password.")
+        if st.button("Fetch Results", use_container_width=True):
+            if username and password:
+                with st.spinner("Logging in and fetching results..."):
+                    try:
+                        semester_data = get_credentials(username, password)
+                        st.session_state.semester_data = semester_data
+                    except Exception as e:
+                        st.error(f"Something went wrong: {e}")
+            else:
+                st.warning("Please enter both username and password.")
 
     with st.expander("Results", expanded=True):
     # Show results if available

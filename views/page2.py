@@ -43,7 +43,7 @@ def main():
     tab1, tab2 = st.tabs(["Assignment Submission", "Plagiarism Check"])
 
     with tab1:
-        st.header("📙 Assignment Submission")
+        st.title(":material/assignment_add: Assignment Submission")
         uploaded_file = st.file_uploader("Upload Assignment PDF (Handwritten/Typed)", type=["pdf"])
         extracted_text = ""
 
@@ -76,7 +76,7 @@ def main():
                     st.success("Text extracted and saved for plagiarism checking.")
 
     with tab2:
-        st.header("👨🏻‍🏫 Plagiarism Check")
+        st.title(":material/plagiarism: Plagiarism Check")
         db = load_db()
         if not db:
             st.info("No submissions in the database.")
@@ -84,7 +84,7 @@ def main():
         roll_nos = sorted(set([entry["roll_no"] for entry in db]))
         selected_roll = st.selectbox("Select Student Roll Number", roll_nos, index=None)
         threshold = st.slider("Show matches above score", 0, 100, 60, 1, key="vision_faculty_threshold_sentence")
-        if st.button("Check Plagiarism (Vision) - Sentence Level"):
+        if st.button(":material/document_scanner: Check Plagiarism"):
             target_entry = next((entry for entry in db if entry["roll_no"] == selected_roll), None)
             if not target_entry:
                 st.error("Submission not found.")

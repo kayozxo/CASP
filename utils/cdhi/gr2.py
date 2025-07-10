@@ -8,7 +8,7 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 
 
 def generated_report():
-    st.title("📊 Career Guidance Report")
+    st.title(":material/monitoring: Career Guidance Report")
 
     # Load environment variables from .env file
     load_dotenv()
@@ -37,19 +37,19 @@ def generated_report():
         return
 
     # — Data Overview
-    with st.expander("📦 GitHub Summary"):
+    with st.expander(":material/deployed_code_update: GitHub Summary"):
         st.markdown(f"Most Used Language: **{top_lang}**")
         st.dataframe(github_df)
-    with st.expander("📚 Academic Summary"):
+    with st.expander(":material/grading: Academic Summary"):
         for sem, info in semester_data.items():
             st.write(f"**{sem}** — SGPA: {info['SGPA']} | CGPA: {info['CGPA']}")
             st.table(pd.DataFrame(info["grades"], columns=["Subject", "Grade"]))
-    with st.expander("📄 Resume"):
+    with st.expander(":material/demography: Resume"):
         st.markdown(resume_text)
 
 
     # — Generate report
-    if st.button("🧠 Generate Career Report"):
+    if st.button(":material/school: Generate Career Report"):
         with st.spinner("Running Agno Agent..."):
             prompt = build_prompt(github_df, semester_data, resume_text, top_lang)
             report = agent.run(prompt)
@@ -59,11 +59,11 @@ def generated_report():
 
     # — Display saved report
     if "career_report" in st.session_state:
-        st.subheader("📃 Career Report")
+        st.subheader(":material/assignment_late: Career Report")
         st.markdown(st.session_state["career_report"])
 
         # — Enrich via Agno search
-        st.subheader("🎓 Course Suggestions")
+        st.subheader(":material/lightbulb: Course Suggestions")
 
         agent = Agent(
             model=Groq(id="llama-3.3-70b-versatile", api_key=groq_api_key),

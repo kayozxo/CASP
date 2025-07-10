@@ -19,3 +19,5 @@ uploads
 vision_text_db.json
 openvino_models
 openvino_test
+
+intel
