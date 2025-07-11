@@ -70,7 +70,6 @@ https://github.com/user-attachments/assets/f1d1cbb5-23de-451b-a72b-f0c067ba30f6
 ├── utils/
 │   ├── cdhi/              # Career DHI utilities (grades, github, resume, report)
 │   └── plag/              # Plagiarism utilities (pdf/image, vision OCR)
-├── openvino_models/       # (Optional) OpenVINO models for local embedding
 ├── uploads/, stitched/    # Uploaded assignments and stitched images
 ├── vision_text_db.json    # Plagiarism DB
 ├── .env                   # API keys (GROQ_API, GROQ_PLAG_API)
