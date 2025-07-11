@@ -34,8 +34,8 @@ CASP is a modern, full-stack Streamlit application that empowers students and ed
 ### 3. AI Buddy (Smart Notes Generator & Document Chatbot)
 
 - **Notes Generator:**
-  - Upload PDFs, DOCX, or PPTX files (lecture notes, textbooks, slides).
-  - Extracts, cleans, and summarizes content into high-quality, bullet-point notes using local LLM optimized by OpenVINO.
+  - Upload PDFs, DOCX, or PPTX files (lecture notes, textbooks, slides) or click a picture of the class board or your notes.
+  - Extracts, cleans, and summarizes content into high-quality, bullet-point notes.
   - Download notes as a formatted PDF.
 - **AI Document Chatbot:**
   - Ask questions about any uploaded document.
