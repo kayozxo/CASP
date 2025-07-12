@@ -88,7 +88,7 @@ https://github.com/user-attachments/assets/f1d1cbb5-23de-451b-a72b-f0c067ba30f6
 1. **Clone the repo:**
 
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/kayozxo/CASP.git
    cd intel
    ```
 
@@ -103,20 +103,20 @@ https://github.com/user-attachments/assets/f1d1cbb5-23de-451b-a72b-f0c067ba30f6
    ```
 
 3. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
+
 4. **Set up .env:**
+
    - Add your Groq API keys:
      ```
      GROQ_API="your-groq-api-key"
      GROQ_PLAG_API="your-groq-plag-key"
      ```
-5. **(Optional) Download OpenVINO model:**
-   ```bash
-   python convert_miniLM_openvino.py
-   ```
-6. **Run the app:**
+
+5. **Run the app:**
    ```bash
    streamlit run main.py
    ```
